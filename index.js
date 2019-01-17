@@ -22,7 +22,7 @@ db.on('connected', () => {
 });
 
 // on error
-db.on('error', () => {
+db.on('error', (error) => {
     console.log(error);
 });
 
