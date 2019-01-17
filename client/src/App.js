@@ -4,13 +4,18 @@ import { Navbars } from './components/Navbar';
 import { ShoppingList } from './components/ShoppingList';
 
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navbars />
-        <ShoppingList />
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Navbars />
+          <ShoppingList />
+        </div>
+      </Provider>
     );
   }
 }
