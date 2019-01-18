@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/database');
+const path = require('path');
 
 const items = require('./routes/api/items');
 
@@ -26,8 +27,12 @@ db.on('error', (error) => {
     console.log(error);
 });
 
-
+app.use(express.static('build'));
 // routes
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
+
 app.use('/api/items', items);
 
 const PORT = process.env.PORT || 5000
