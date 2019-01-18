@@ -28,7 +28,7 @@ db.on('error', (error) => {
 
 
 // routes
-app.use('/items/api', items);
+app.use('/api/items', items);
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
