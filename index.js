@@ -29,6 +29,8 @@ db.on("error", error => {
   console.log(error);
 });
 
+app.use("/api/items", items);
+
 if ((process.env.NODE_ENV = "production")) {
   app.use(express.static("client/build"));
   // routes
@@ -37,7 +39,6 @@ if ((process.env.NODE_ENV = "production")) {
   });
 }
 
-app.use("/api/items", items);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
