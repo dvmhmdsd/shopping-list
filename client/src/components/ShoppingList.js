@@ -6,7 +6,7 @@ import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
 
-export class ShoppingList extends Component {
+class ShoppingList extends Component {
 
     componentDidMount() {
         this.props.getItems();
@@ -51,10 +51,8 @@ ShoppingList.propTypes = {
     item: PropTypes.object.isRequired
 }
 
-const mapStateToProps = (state) => {
-    return {
-        item: state.item
-    }
-}
+const mapStateToProps = (state) => ({
+    item: state.item
+})
 
 export default connect(mapStateToProps, { getItems, deleteItem })(ShoppingList);
